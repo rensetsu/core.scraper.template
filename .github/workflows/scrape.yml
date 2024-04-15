@@ -5,13 +5,13 @@ on:
     paths:
       - "scraper/*"
   schedule:
-    - cron: "* * */7 * *"
+    - cron: "0 12 * * 0"
 permissions:
   contents: write
 jobs:
   Scrape:
     name: "Scrape platform and convert as Media object"
-    runs-on: ubuntu-laters
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
