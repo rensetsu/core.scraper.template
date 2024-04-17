@@ -10,21 +10,19 @@ from loops import do_loop
 def main() -> None:
     """Main process of the util"""
     start = time()
+    ex = 0
+    pprint.print(Status.INFO, "Starting...")
     try:
         do_loop()
-        end = time()
-        pprint.print(
-            Status.INFO, f"Time elapsed: {convert_float_to_time(end - start)}"
-        )
-        sysexit(0)
     except Exception as e:
         pprint.print(Status.ERR, f"An error occurred: {e}")
         print_exc()
-        end = time()
-        pprint.print(
-            Status.INFO, f"Time elapsed: {convert_float_to_time(end - start)}"
-        )
-        sysexit(1)
+        ex = 1
+    end = time()
+    pprint.print(
+        Status.INFO, f"Time elapsed: {convert_float_to_time(end - start)}"
+    )
+    sysexit(ex)
 
 
 if __name__ == "__main__":
